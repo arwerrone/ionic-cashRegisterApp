@@ -1,0 +1,7 @@
+{
+  "name": "Cash_Register_App-Ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
