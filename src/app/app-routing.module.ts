@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'manager',
+    loadChildren: () => import('./manager/manager.module').then( m => m.ManagerPageModule)
+  },
 ];
 
 @NgModule({

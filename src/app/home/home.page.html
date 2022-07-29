@@ -1,20 +1,127 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Cash Register App
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" color="light">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <!-- TENTA USAR WIDTH NESSA BUDEGA Q N FUNCIONA // offset -->
+  <br>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col>
+        <ion-label class="ion-padding" >{{currentItem.name}}</ion-label>  
+      </ion-col>
+      <ion-col offset="4">
+        <ion-button [routerLink]="['/manager']" size="large" color="tertiary"><p style="color: #072EF0; font-size: 20px;">Manager</p></ion-button>  
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+
+      <ion-col class="ion-padding-left" size="8">
+        <ion-grid>
+
+          <ion-row >
+            <ion-col>
+              <ion-button color="secondary" size="large" (click)="quantityEntered(1)"><p style="color: black;">1</p></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button color="secondary" size="large" (click)="quantityEntered(2)"><p style="color: black;">2</p></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button color="secondary" size="large" (click)="quantityEntered(3)"><p style="color: black;">3</p></ion-button>
+            </ion-col>
+          </ion-row>
+      
+          <ion-row>
+            <ion-col>
+              <ion-button color="secondary" size="large" (click)="quantityEntered(4)"><p style="color: black;">4</p></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button color="secondary" size="large" (click)="quantityEntered(5)"><p style="color: black;">5</p></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button color="secondary" size="large" (click)="quantityEntered(6)"><p style="color: black;">6</p></ion-button>
+            </ion-col>
+          </ion-row>
+      
+          <ion-row>
+            <ion-col>
+              <ion-button color="secondary" size="large" (click)="quantityEntered(7)"><p style="color: black;">7</p></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button color="secondary" size="large" (click)="quantityEntered(8)"><p style="color: black;">8</p></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button color="secondary" size="large" (click)="quantityEntered(9)"><p style="color: black;">9</p></ion-button>
+            </ion-col>
+          </ion-row>
+      
+          <ion-row>
+            <ion-col offset="4"><ion-button color="secondary" size="large" (click)="quantityEntered(0)"><p style="color: black;">0</p></ion-button></ion-col>
+          </ion-row>
+      
+      
+        </ion-grid>
+      
+
+      </ion-col>
+
+      <ion-col >
+        <ion-grid >
+          <ion-row class="ion-padding-top">
+            <ion-col>
+              <ion-label position="fixed" *ngIf="currentShop.total == -1; else conditionFalse">Total</ion-label>
+              <ng-template #conditionFalse><ion-label>{{currentShop.total}}</ion-label></ng-template>
+
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-padding-top">
+            <ion-col>
+              <ion-button color="primary" size="medium" style="height:130px; color: black;" (click)="purchase()"><p style="color: black; font-size: 20px;">Buy</p></ion-button>
+            </ion-col>
+          </ion-row>
+          
+        </ion-grid>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-label class="ion-padding" *ngIf="currentShop.selQuantity == -1; else conditionFalse1">Quantity</ion-label>
+      <ng-template #conditionFalse1><ion-label class="ion-padding" >{{currentShop.selQuantity}}</ion-label></ng-template>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-list *ngFor="let item of listOfItems">
+          
+          <ion-item (click)="itemSelected(item)" [class.jesusviu]="isSelected(item)"> <!--[class.jesusviu]="isSelected()"-->
+
+
+            <ion-label>{{item.name}}    
+              <ion-row><ion-note style="color: red;">{{item.price}}</ion-note></ion-row>
+            </ion-label>
+            <ion-note slot="end" style="color: black;">{{item.quantity}}</ion-note>
+
+
+          </ion-item>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  
+
+
+
+
+
+  
 </ion-content>

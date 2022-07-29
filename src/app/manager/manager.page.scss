@@ -1,0 +1,15 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+.center ion-button {
+    width: 50%;
+    --ion-color-primary: #ff9cee;
+    color: #6EB5FF;
+    font-size: 20px;
+  }

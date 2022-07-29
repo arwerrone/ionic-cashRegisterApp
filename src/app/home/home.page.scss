@@ -25,3 +25,24 @@
 #container a {
   text-decoration: none;
 }
+////////////////////////////////////////
+
+ion-button {
+  --border-radius: 20px;
+  --ion-color-primary: #072EF0;
+  --ion-color-secondary: #FFFFFF;
+  --ion-color-tertiary: red;
+}
+
+ion-label{
+  font-size: 25px;
+}
+
+ion-item {
+  max-width: 90%;
+
+}
+
+.jesusviu{
+  --ion-background-color: lightgrey;
+}
