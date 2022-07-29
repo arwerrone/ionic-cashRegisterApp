@@ -1,9 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>history</ion-title>
+    <ion-title>History Items</ion-title>
+    <ion-buttons>
+      <ion-back-button defaultHref="manager"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-list *ngFor="let history of listOfHistory">
+    <ion-item  [routerLink]="['./',history.id]">
+      <ion-label>{{history.productName}}
+        <ion-row><ion-note style="color: lightgray;">{{history.quantity}}</ion-note></ion-row>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

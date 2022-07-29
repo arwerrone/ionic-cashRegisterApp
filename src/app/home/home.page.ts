@@ -97,6 +97,17 @@ export class HomePage {
       this.currentItem.quantity -= Number(this.currentShop.selQuantity);
       this.itemService.updateItem(this.currentItem);
 
+      //Create history
+      let newHistory = {
+        id: Date.now(),
+        productName: this.currentItem.name,
+        quantity: Number(this.currentShop.selQuantity),
+        total: this.currentShop.total,
+        date: Date.now()
+      }
+      this.itemService.createHistory(newHistory);
+
+
     }else{
       const alert = await this.alertController.create({
         header: 'Error',

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemService, History} from 'src/app/item.service';
 
 @Component({
   selector: 'app-history',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryPage implements OnInit {
 
-  constructor() { }
+  listOfHistory: History[] = [];
+
+  constructor(private itemService: ItemService) { }
 
   ngOnInit() {
+    this.loadHistory();
+  }
+
+  loadHistory(){
+    this.itemService.getHistory().then(histories => {
+      this.listOfHistory = histories;
+    });
   }
 
 }

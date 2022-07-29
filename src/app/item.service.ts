@@ -8,7 +8,16 @@ export interface Item {
   price: number,
 }
 
+export interface History {
+  id: number,
+  productName: string,
+  quantity: number,
+  total: number,
+  date: number
+}
+
 const ITEMS_KEY = 'my-items';
+const HISTOKY_KEY = 'my-history';
 
 @Injectable({
   providedIn: 'root'
@@ -93,4 +102,23 @@ export class ItemService {
     });
   }
 
+  ////////////HISTORY
+  
+  createHistory(history: History){
+    return this.storage.get(HISTOKY_KEY).then((histories: History[]) => {
+      if(histories){
+        histories.push(history);
+        return this.storage.set(HISTOKY_KEY, histories);
+      }else{
+        return this.storage.set(HISTOKY_KEY, [history]);
+      }
+    })
+
+  }
+
+  getHistory(): Promise<History[]>{
+    return this.storage.get(HISTOKY_KEY);
+  }
+
+    
 }

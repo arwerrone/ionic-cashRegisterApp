@@ -13,7 +13,27 @@ const routes: Routes = [
   },
   {
     path: 'manager',
-    loadChildren: () => import('./manager/manager.module').then( m => m.ManagerPageModule)
+    children:[{
+      path:'',
+      loadChildren: () => import('./manager/manager.module').then( m => m.ManagerPageModule)
+    },{
+      path:'addproduct',
+      loadChildren: () => import('./manager/add-product/add-product.module').then( m => m.AddProductPageModule)
+    },{
+      path:'history',
+      children:[{
+        path:'',
+        loadChildren: () => import('./manager/history/history.module').then( m => m.HistoryPageModule)
+      },{
+        path:':history_id',
+        loadChildren: () => import('./manager/history/details/details.module').then( m => m.DetailsPageModule)
+      }]
+
+    },{
+      path:'restoke',
+      loadChildren: () => import('./manager/restoke/restoke.module').then( m => m.RestokePageModule)
+    }]
+
   },
 ];
 
