@@ -1,0 +1,17 @@
+.center {
+  display: flex;
+  justify-content:center;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+.center p {
+  margin-block-start: 2px;
+  margin-block-end: 2px;
+}
+
+.pader{
+  padding-left: 32%;
+}

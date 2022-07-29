@@ -120,5 +120,14 @@ export class ItemService {
     return this.storage.get(HISTOKY_KEY);
   }
 
-    
+  getHistoryDetail(id){
+    return this.storage.get(HISTOKY_KEY).then((histories: History[]) => {
+      for(let i of histories){
+        if(i.id == id){
+          return i;
+        }
+      }
+    })
+  }  
+
 }

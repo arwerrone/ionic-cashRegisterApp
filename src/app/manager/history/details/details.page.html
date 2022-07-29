@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>NOME DO PRODUTO AKI</ion-title>
+    <ion-title>{{historyDetail.productName}}</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="history" text="History Items"></ion-back-button>
     </ion-buttons>
@@ -8,5 +8,14 @@
 </ion-header>
 
 <ion-content>
+
+  <div class="center">
+    <ion-grid>
+      <ion-row class="pader"><p>{{historyDetail.productName}}</p></ion-row>
+      <ion-row class="pader"><p>{{historyDetail.quantity}}</p></ion-row>
+      <ion-row class="pader"><p>{{historyDetail.date | date:'M/d/yy h:mm:ss a'}}</p></ion-row>
+      <ion-row class="pader"><p>Total Amount: {{historyDetail.total}}</p></ion-row>
+    </ion-grid>
+  </div>
 
 </ion-content>
