@@ -9,12 +9,24 @@
 
 <ion-content>
 
-  <ion-list *ngFor="let history of listOfHistory">
-    <ion-item  [routerLink]="['./',history.id]">
-      <ion-label>{{history.productName}}
-        <ion-row><ion-note style="color: lightgray;">{{history.quantity}}</ion-note></ion-row>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+
+  <div *ngIf="listOfHistory else noHistory">
+
+    <ion-list *ngFor="let history of listOfHistory">
+      <ion-item  [routerLink]="['./',history.id]">
+        <ion-label>{{history.productName}}
+          <ion-row><ion-note style="color: lightgray;">{{history.quantity}}</ion-note></ion-row>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+   </div>
+   
+   <ng-template #noHistory>
+    <div class="center">No history Purchase, go Buy something :)</div>
+   </ng-template>
+
+
+
 
 </ion-content>
