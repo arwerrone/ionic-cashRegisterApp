@@ -85,7 +85,7 @@ export class HomePage {
 
   async purchase(){
 
-    if( Number(this.currentShop.selQuantity) <= this.currentItem.quantity && this.currentItem.id != -1){
+    if( Number(this.currentShop.selQuantity) <= this.currentItem.quantity && this.currentItem.id != -1 && Number(this.currentShop.selQuantity) != -1){
       this.currentItem.quantity -= Number(this.currentShop.selQuantity);
       this.itemService.updateItem(this.currentItem);
 
