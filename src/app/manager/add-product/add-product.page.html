@@ -1,12 +1,42 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>addProduct</ion-title>
+    <ion-title style="font-size: 15px;">Add New Product</ion-title>
     <ion-buttons>
       <ion-back-button defaultHref="manager"></ion-back-button>
     </ion-buttons>
+
+    <ion-buttons slot="primary">
+      <ion-button (click)="saveClicked()" style="font-size: 16px;">Save</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/manager']" style="font-size: 16px;">Cancel</ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true" class="bgcol">
+
+  <ion-list lines="full" class="ion-no-margin">
+    <ion-list-header lines="full">
+      <ion-label style="font-size: 12px; color: #92949c;"> NEW PRODUCT </ion-label>
+    </ion-list-header>
+    <ion-item >
+      <ion-label>Product Name</ion-label>
+      <ion-input [(ngModel)]="prodctName" placeholder="Enter Product Name"></ion-input>
+    </ion-item>
+    <ion-item >
+      <ion-label style="padding-right: 20%;">Price</ion-label>
+      <ion-input [(ngModel)]="productPrice" placeholder="Enter Product Price" type="number"></ion-input>
+    </ion-item>
+    <ion-item >
+      <ion-label style="padding-right: 13%;">Quantity</ion-label>
+      <ion-input [(ngModel)]="productQuantity" placeholder="Enter Product Quantity" type="number"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+
+  
 
 </ion-content>
