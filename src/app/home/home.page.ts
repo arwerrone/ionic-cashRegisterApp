@@ -43,20 +43,8 @@ export class HomePage {
 
   constructor(private itemService: ItemService, private alertController: AlertController) {}
 
-  async addDefaultVal(){
-    const item1 = {id: 1,name: 'Pants',quantity: 20,price: 50.7,};
-    const item2 = {id: 2,name: 'Shoes',quantity: 50,price: 90,};
-    const item3 = {id: 3,name: 'Hats',quantity: 10,price: 20.5,};
-
-    await this.itemService.addItem(item1);
-    await this.itemService.addItem(item2);
-    await this.itemService.addItem(item3);
-
-  }
-
-  async ngOnInit(){ 
-    this.itemService.createee();    //Initialize storage
-    await this.addDefaultVal();
+  ngOnInit(){ 
+    this.itemService.createee();
 
     this.loadItems();
 
@@ -97,7 +85,7 @@ export class HomePage {
 
   async purchase(){
 
-    if( Number(this.currentShop.selQuantity) <= this.currentItem.quantity){
+    if( Number(this.currentShop.selQuantity) <= this.currentItem.quantity && this.currentItem.id != -1){
       this.currentItem.quantity -= Number(this.currentShop.selQuantity);
       this.itemService.updateItem(this.currentItem);
 

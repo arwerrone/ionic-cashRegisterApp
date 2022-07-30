@@ -46,3 +46,12 @@ ion-item {
 .jesusviu{
   --ion-background-color: lightgrey;
 }
+
+.center {
+  display: flex;
+  justify-content:center;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }

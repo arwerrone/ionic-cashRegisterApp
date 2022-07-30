@@ -99,20 +99,27 @@
 
     <ion-row>
       <ion-col>
-        <ion-list *ngFor="let item of listOfItems">
-          
-          <ion-item (click)="itemSelected(item)" [class.jesusviu]="isSelected(item)"> <!--[class.jesusviu]="isSelected()"-->
 
 
-            <ion-label>{{item.name}}    
-              <ion-row><ion-note style="color: red;">{{item.price}}</ion-note></ion-row>
-            </ion-label>
-            <ion-note slot="end" style="color: black;">{{item.quantity}}</ion-note>
+        <div *ngIf="listOfItems else noItems">
+
+          <ion-list *ngFor="let item of listOfItems">          
+            <ion-item (click)="itemSelected(item)" [class.jesusviu]="isSelected(item)"> <!--[class.jesusviu]="isSelected()"-->
+              <ion-label>{{item.name}}    
+                <ion-row><ion-note style="color: red;">{{item.price}}</ion-note></ion-row>
+              </ion-label>
+              <ion-note slot="end" style="color: black;">{{item.quantity}}</ion-note>
+            </ion-item>
+          </ion-list>
+
+        </div>
 
 
-          </ion-item>
 
-        </ion-list>
+        <ng-template #noItems>
+          <div class="center">No Items to Purchase, go and add something :)</div>
+        </ng-template>
+        
       </ion-col>
     </ion-row>
 
