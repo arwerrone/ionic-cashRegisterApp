@@ -62,6 +62,10 @@ export class HomePage {
 
   }
 
+  ionViewWillEnter(){
+    this.loadItems();
+  }
+
   loadItems(){
     this.itemService.getItems().then(items => {
       this.listOfItems = items;

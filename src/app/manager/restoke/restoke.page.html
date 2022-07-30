@@ -9,4 +9,23 @@
 
 <ion-content>
 
+  <div class="center">
+    <ion-input type="number" [(ngModel)]="quantityToAdd" placeholder="Enter new quantity"></ion-input> <!--(ionChange)="inputChanged($event)"-->
+  </div>
+  
+  <ion-grid>
+    <ion-row style="padding-top: 10px; padding-bottom: 20px;">
+      <ion-label (click)="restockClicked()" style="padding-left: 32%; color: #1982FC;">Restock</ion-label>
+      <ion-label [routerLink]="['/manager']" style="padding-left: 5%; color: #1982FC">Cancel</ion-label>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-list *ngFor="let item of listOfItemss">
+    <ion-item (click)="itemSelected(item)" [class.jesusviu]="isSelected(item)">
+      <ion-label>{{item.name}}</ion-label>
+      <ion-note slot="end" style="color: black;">{{item.quantity}}</ion-note>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
